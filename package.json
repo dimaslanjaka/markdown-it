@@ -12,7 +12,7 @@
   "repository": "markdown-it/markdown-it",
   "license": "MIT",
   "main": "dist/index.cjs.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.mts",
   "module": "index.mjs",
   "exports": {
     ".": {
@@ -38,7 +38,7 @@
     "./*": {
       "require": "./*",
       "import": "./*",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.mts"
     }
   },
   "bin": "bin/markdown-it.mjs",
