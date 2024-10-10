@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "es5",
+      "es6",
+      "dom"
+    ],
+    "target": "es5",
+    "moduleResolution": "node",
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "dist"
+  },
+  "include": [
+    "./lib/**/*.mjs",
+    "./index.mjs"
+  ],
+  "exclude": [
+    "./dist",
+    "./node_modules"
+  ]
+}
