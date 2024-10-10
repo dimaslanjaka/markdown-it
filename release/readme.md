@@ -2,8 +2,8 @@
 ## Releases
 | version | tarball url |
 | :--- | :--- |
-| 14.1.0 | https://github.com/dimaslanjaka/markdown-it/raw/39518a4/release/markdown-it-14.1.0.tgz |
-| latest | https://github.com/dimaslanjaka/markdown-it/raw/39518a4/release/markdown-it.tgz |
+| 14.1.0 | https://github.com/dimaslanjaka/markdown-it/raw/636db8c/release/markdown-it-14.1.0.tgz |
+| latest | https://github.com/dimaslanjaka/markdown-it/raw/636db8c/release/markdown-it.tgz |
 | latest | https://github.com/dimaslanjaka/markdown-it/raw/master/release/markdown-it.tgz |
 
 use this tarball with `resolutions`:
