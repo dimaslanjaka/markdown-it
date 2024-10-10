@@ -1,0 +1,20 @@
+{
+  "/release/markdown-it-14.1.0.tgz": {
+    "integrity": {
+      "sha1": "e2f380871b21e80c1b05275be4eaf69f1baab390",
+      "sha256": "Z/Wq155BsOFtt4wjieSwrAOLbMEHbDjsf/e4fk1aYEw=",
+      "md5": "41d7b84d43f87612a5da6556a6d34ef5",
+      "sha512": "yEU+nIHRTHWTBV2Q+vLq+t3MkshefuwXdQkLryOSkJzYNvEC1+m39P7XLSUK3QfDzj6Jqk2XX5/XgxVSt4R18A=="
+    },
+    "size": "223.59 KB"
+  },
+  "/release/markdown-it.tgz": {
+    "integrity": {
+      "sha1": "e2f380871b21e80c1b05275be4eaf69f1baab390",
+      "sha256": "Z/Wq155BsOFtt4wjieSwrAOLbMEHbDjsf/e4fk1aYEw=",
+      "md5": "41d7b84d43f87612a5da6556a6d34ef5",
+      "sha512": "yEU+nIHRTHWTBV2Q+vLq+t3MkshefuwXdQkLryOSkJzYNvEC1+m39P7XLSUK3QfDzj6Jqk2XX5/XgxVSt4R18A=="
+    },
+    "size": "223.59 KB"
+  }
+}
