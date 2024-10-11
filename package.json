@@ -35,6 +35,16 @@
         "types": "./dist/token.d.mts"
       }
     },
+    "./lib/token": {
+      "require": {
+        "default": "./dist/token.cjs",
+        "types": "./dist/token.d.ts"
+      },
+      "import": {
+        "default": "./dist/token.mjs",
+        "types": "./dist/token.d.mts"
+      }
+    },
     "./*": {
       "require": "./*",
       "import": "./*",
