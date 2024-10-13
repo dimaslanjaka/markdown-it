@@ -1,0 +1,7 @@
+{
+  "eslint.useFlatConfig": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "eslint.format.enable": true
+}
