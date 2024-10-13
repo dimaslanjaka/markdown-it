@@ -12,13 +12,13 @@
   "type": "module",
   "repository": "markdown-it/markdown-it",
   "license": "MIT",
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.cjs",
   "types": "dist/index.d.mts",
   "module": "index.mjs",
   "exports": {
     ".": {
       "require": {
-        "default": "./dist/index.cjs.js",
+        "default": "./dist/index.cjs",
         "types": "./dist/index.d.mts"
       },
       "import": {
@@ -29,7 +29,7 @@
     "./token": {
       "require": {
         "default": "./dist/token.cjs",
-        "types": "./dist/token.d.ts"
+        "types": "./dist/token.d.mts"
       },
       "import": {
         "default": "./dist/token.mjs",
@@ -39,7 +39,7 @@
     "./lib/token": {
       "require": {
         "default": "./dist/token.cjs",
-        "types": "./dist/token.d.ts"
+        "types": "./dist/token.d.mts"
       },
       "import": {
         "default": "./dist/token.mjs",
@@ -62,10 +62,10 @@
     "gh-demo": "npm run demo && gh-pages -d demo -f -b master -r git@github.com:markdown-it/markdown-it.github.io.git",
     "build:default": "rollup -c support/rollup.config.mjs",
     "build:pack": "node packer.cjs --yarn",
-    "build:tsup": "node build.tsup.js",
+    "build:tsup": "node build.mtsup.js",
     "build:tsc": "tsc -b tsconfig.docs.json",
     "build:old": "rimraf dist && npm run build:default && npm run build:tsup && npm run build:tsc && npm run build:pack",
-    "build": "rimraf build && rollup -c && npm run build:tsc && npm run build:pack",
+    "build": "rimraf dist && rollup -c && npm run build:tsc && npm run build:pack",
     "benchmark-deps": "npm install --prefix benchmark/extra/ -g marked@0.3.6 commonmark@0.26.0 markdown-it/markdown-it.git#2.2.1",
     "specsplit": "support/specsplit.mjs good -o test/fixtures/commonmark/good.txt && support/specsplit.mjs bad -o test/fixtures/commonmark/bad.txt && support/specsplit.mjs",
     "todo": "grep 'TODO' -n -r ./lib 2>/dev/null",

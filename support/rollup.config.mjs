@@ -45,16 +45,10 @@ const config_umd_full = {
 
 const config_cjs_no_deps = {
   input: 'index.mjs',
-  output: [
-    {
-      file: 'dist/index.cjs.js',
-      format: 'cjs'
-    },
-    {
-      file: 'dist/index.cjs',
-      format: 'cjs'
-    }
-  ],
+  output: {
+    file: 'dist/index.cjs',
+    format: 'cjs'
+  },
   external: Object.keys(pkg.dependencies),
   plugins: [resolve(), babel({ babelHelpers: 'bundled' })]
 };
