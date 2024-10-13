@@ -53,9 +53,7 @@ module.exports = {
       exclude: 'node_modules/**' // Exclude node_modules from transpilation
     }),
     typescript({
-      tsconfig: "tsconfig.json",
-
+      tsconfig: 'tsconfig.json'
     })
   ]
 };
-
