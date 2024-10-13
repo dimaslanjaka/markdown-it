@@ -1,9 +1,9 @@
-import resolve from '@rollup/plugin-node-resolve'
-import terser from '@rollup/plugin-terser'
-import { babel } from '@rollup/plugin-babel'
-import { readFileSync } from 'fs'
+import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
+import { babel } from '@rollup/plugin-babel';
+import { readFileSync } from 'fs';
 
-const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url)))
+const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url)));
 
 const config_umd_full = {
   input: 'index.mjs',
@@ -36,12 +36,12 @@ const config_umd_full = {
     resolve(),
     babel({ babelHelpers: 'bundled' }),
     {
-      banner () {
-        return `/*! ${pkg.name} ${pkg.version} https://github.com/${pkg.repository} @license ${pkg.license} */`
+      banner() {
+        return `/*! ${pkg.name} ${pkg.version} https://github.com/${pkg.repository} @license ${pkg.license} */`;
       }
     }
   ]
-}
+};
 
 const config_cjs_no_deps = {
   input: 'index.mjs',
@@ -50,17 +50,11 @@ const config_cjs_no_deps = {
     format: 'cjs'
   },
   external: Object.keys(pkg.dependencies),
-  plugins: [
-    resolve(),
-    babel({ babelHelpers: 'bundled' })
-  ]
-}
+  plugins: [resolve(), babel({ babelHelpers: 'bundled' })]
+};
 
-let config = [
-  config_umd_full,
-  config_cjs_no_deps
-]
+let config = [config_umd_full, config_cjs_no_deps];
 
-if (process.env.CJS_ONLY) config = [config_cjs_no_deps]
+if (process.env.CJS_ONLY) config = [config_cjs_no_deps];
 
-export default config
+export default config;
