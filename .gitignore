@@ -5,3 +5,7 @@ demo/
 apidoc/
 dist/
 *.log
+yarn.lock
+package-lock.json
+**/.yarn/*gz
+**/.yarn/cache*
