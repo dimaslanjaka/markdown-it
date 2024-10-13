@@ -1,21 +1,21 @@
 {
   "/release/markdown-it-14.1.0.tgz": {
     "integrity": {
-      "sha1": "173af5bfe68a9ccb6453be7a57f2ace6f93904a0",
-      "sha256": "afTo2hp++MnTSHmKrwW4OicWnxECfvwrtwvX/XGV5AQ=",
-      "md5": "70cfa905a4253a7fbed11ec28199b521",
-      "sha512": "RhAarkg9mVgIicV+NpUla8ihTlgSApLh8Yh9LwjQtnb+r3cf8w1fjm4jV61SuMIvoZ1wZ1jXiwZ7+ONuPlnG1Q=="
+      "sha1": "c841ecbaa368c5cdf25fbb95775cd4f087cffa99",
+      "sha256": "7v7No9viYZwRfY2yY3i4C6BeAa9iqq7HkrIJIZMgGYk=",
+      "md5": "08fbe8bd090eb769ff4b0e52d1e62a44",
+      "sha512": "migZ/+eNSN5ydJLB50PhLiHu37YcdakQCjANkqdRkhw78sLqpGZrkMutJMPKWMHwSvpSCEyo2DuC+aTgPHfYrQ=="
     },
-    "size": "364.48 KB"
+    "size": "344.50 KB"
   },
   "/release/markdown-it.tgz": {
     "integrity": {
-      "sha1": "173af5bfe68a9ccb6453be7a57f2ace6f93904a0",
-      "sha256": "afTo2hp++MnTSHmKrwW4OicWnxECfvwrtwvX/XGV5AQ=",
-      "md5": "70cfa905a4253a7fbed11ec28199b521",
-      "sha512": "RhAarkg9mVgIicV+NpUla8ihTlgSApLh8Yh9LwjQtnb+r3cf8w1fjm4jV61SuMIvoZ1wZ1jXiwZ7+ONuPlnG1Q=="
+      "sha1": "c841ecbaa368c5cdf25fbb95775cd4f087cffa99",
+      "sha256": "7v7No9viYZwRfY2yY3i4C6BeAa9iqq7HkrIJIZMgGYk=",
+      "md5": "08fbe8bd090eb769ff4b0e52d1e62a44",
+      "sha512": "migZ/+eNSN5ydJLB50PhLiHu37YcdakQCjANkqdRkhw78sLqpGZrkMutJMPKWMHwSvpSCEyo2DuC+aTgPHfYrQ=="
     },
-    "size": "364.48 KB"
+    "size": "344.50 KB"
   },
   "/yarn.lock": {
     "integrity": {
