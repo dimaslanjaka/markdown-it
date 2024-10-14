@@ -1,10 +1,10 @@
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
-import { globSync } from 'glob';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-import support from './support/rollup.config.mjs';
+import { globSync } from 'glob';
 import { external } from './rollup.utils.js';
+import support from './support/rollup.config.mjs';
 
 // Get all entry points from the directory
 const input = globSync(['./lib/**/*.{ts,js,cjs,mjs}'], { posix: true });
@@ -14,13 +14,23 @@ const input = globSync(['./lib/**/*.{ts,js,cjs,mjs}'], { posix: true });
  */
 const preserverDirs = {
   input, // Use the input array directly
-  output: {
-    dir: 'dist',
-    format: 'cjs',
-    sourcemap: false,
-    preserveModules: true,
-    exports: 'named'
-  },
+  output: [
+    {
+      dir: 'dist',
+      format: 'cjs',
+      sourcemap: false,
+      preserveModules: true,
+      exports: 'named'
+    },
+    {
+      dir: 'dist',
+      format: 'esm',
+      sourcemap: false,
+      preserveModules: true,
+      exports: 'named',
+      entryFileNames: '[name].mjs'
+    }
+  ],
   plugins: [
     typescript({
       tsconfig: 'tsconfig.json'
