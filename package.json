@@ -47,9 +47,9 @@
       }
     },
     "./*": {
-      "require": "./*",
+      "require": "./dist/*",
       "import": "./*",
-      "types": "./dist/index.d.mts"
+      "types": "./dist/*"
     }
   },
   "bin": "bin/markdown-it.mjs",
@@ -114,6 +114,7 @@
     "eslint-plugin-promise": "^7.1.0",
     "express": "^4.14.0",
     "gh-pages": "^6.1.0",
+    "git-command-helper": "^2.0.2",
     "globals": "^15.11.0",
     "highlight.js": "^11.9.0",
     "jest-worker": "^29.7.0",

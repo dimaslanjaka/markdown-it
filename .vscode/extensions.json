@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "foxundermoon.shell-format",
+    "dbaeumer.vscode-eslint",
+    "ginfuru.better-nunjucks",
+    "monosans.djlint",
+    "formulahendry.auto-rename-tag",
+    "eliostruyf.vscode-front-matter"
+  ]
+}

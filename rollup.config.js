@@ -24,6 +24,14 @@ const preserverDirs = {
     },
     {
       dir: 'dist',
+      format: 'cjs',
+      sourcemap: false,
+      preserveModules: true,
+      exports: 'named',
+      entryFileNames: '[name].cjs'
+    },
+    {
+      dir: 'dist',
       format: 'esm',
       sourcemap: false,
       preserveModules: true,
