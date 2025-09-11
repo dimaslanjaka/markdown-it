@@ -70,10 +70,6 @@
     "source.organizeImports": "explicit",
     "source.fixAll": "explicit"
   },
-  "eslint.validate": [
-    "javascript",
-    "typescript"
-  ],
   "[nunjucks]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "monosans.djlint",
@@ -207,5 +203,33 @@
     "typescriptreact",
     "javascriptreact"
   ],
-  "git.useCommitInputAsStashMessage": true
+  "git.useCommitInputAsStashMessage": true,
+  "eslint.probe": [
+    "astro",
+    "civet",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "mdx",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc"
+  ],
+  "eslint.validate": [
+    "astro",
+    "civet",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "mdx",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc"
+  ]
 }
