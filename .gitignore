@@ -9,3 +9,6 @@ yarn.lock
 package-lock.json
 **/.yarn/*gz
 **/.yarn/cache*
+tmp/
+temp/
+.cache/
