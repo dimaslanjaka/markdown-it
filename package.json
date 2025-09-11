@@ -68,7 +68,8 @@
     "specsplit": "support/specsplit.mjs good -o test/fixtures/commonmark/good.txt && support/specsplit.mjs bad -o test/fixtures/commonmark/bad.txt && support/specsplit.mjs",
     "todo": "grep 'TODO' -n -r ./lib 2>/dev/null",
     "prepublishOnly": "npm test && npm run build && npm run gh-demo && npm run gh-doc",
-    "update:packer": "curl -L https://github.com/dimaslanjaka/nodejs-package-types/raw/main/packer.js > packer.cjs"
+    "update:packer": "curl -L https://github.com/dimaslanjaka/nodejs-package-types/raw/main/packer.js > packer.cjs",
+    "clean": "npx rimraf dist tmp"
   },
   "files": [
     "index.mjs",
