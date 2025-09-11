@@ -6,8 +6,14 @@ import { globSync } from 'glob';
 import { external } from './rollup.utils.js';
 import support from './support/rollup.config.mjs';
 
+import { fileURLToPath } from 'url';
+import { dirname, resolve as pathResolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 // Get all entry points from the directory
-const input = globSync(['./lib/**/*.{ts,js,cjs,mjs}'], { posix: true });
+const input = globSync(['./lib/**/*.{ts,js,cjs,mjs}'], { cwd: __dirname }).concat(['./index.mjs']).map(file => pathResolve(__dirname, file));
 
 /**
  * @type {import('rollup').RollupOptions}
