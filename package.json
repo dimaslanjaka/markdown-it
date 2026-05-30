@@ -1,6 +1,6 @@
 {
   "name": "markdown-it",
-  "version": "14.1.0",
+  "version": "14.2.0",
   "description": "Markdown-it - modern pluggable markdown parser.",
   "keywords": [
     "markdown",
@@ -14,6 +14,16 @@
   "license": "MIT",
   "main": "dist/markdown-it.cjs",
   "types": "dist/index.d.mts",
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/puzrin"
+    },
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/markdown-it"
+    }
+  ],
   "module": "index.mjs",
   "exports": {
     ".": {
@@ -55,7 +65,13 @@
   "bin": "bin/markdown-it.mjs",
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && CJS_ONLY=1 npm run build && c8 --exclude dist --exclude test -r text -r html -r lcov mocha && node support/specsplit.mjs",
+    "test": "npm run lint && npm run test:cmspec && npm run test:markdown-it && npm run test:build",
+    "test:cmspec": "node --test --test-reporter=dot test/cmspec/**/*.test.mjs",
+    "test:markdown-it": "node --test test/markdown-it/**/*.test.mjs",
+    "test:build": "npm run build && node --test test/build/**/*.test.mjs",
+    "pathological:track-ref": "node support/track-ref-pathological.mjs",
+    "pathological:update-hash": "node support/track-ref-pathological.mjs --update",
+    "coverage": "npm run build && c8 --include 'lib/**' -r text -r html -r lcov node --test --test-reporter=dot",
     "doc": "node support/build_doc.mjs",
     "gh-doc": "npm run doc && gh-pages -d apidoc -f",
     "demo": "npm run lint && node support/build_demo.mjs",
@@ -63,13 +79,15 @@
     "build:default": "rollup -c support/rollup.config.mjs",
     "build:pack": "node packer.cjs --yarn",
     "build:tsc": "tsc -b tsconfig.docs.json",
-    "build": "rimraf dist && rollup -c && npm run build:tsc && npm run build:pack",
-    "benchmark-deps": "npm install --prefix benchmark/extra/ -g marked@0.3.6 commonmark@0.26.0 markdown-it/markdown-it.git#2.2.1",
+    "build": "rimraf dist && node support/build-dist.mjs && rollup -c && npm run build:tsc && npm run build:pack",
     "specsplit": "support/specsplit.mjs good -o test/fixtures/commonmark/good.txt && support/specsplit.mjs bad -o test/fixtures/commonmark/bad.txt && support/specsplit.mjs",
-    "todo": "grep 'TODO' -n -r ./lib 2>/dev/null",
     "prepublishOnly": "npm test && npm run build && npm run gh-demo && npm run gh-doc",
     "update:packer": "curl -L https://github.com/dimaslanjaka/nodejs-package-types/raw/main/packer.js > packer.cjs",
-    "clean": "npx rimraf dist tmp"
+    "clean": "npx rimraf dist tmp",
+    "benchmark-deps": "npm install --prefix benchmark/extra/",
+    "todo": "grep 'TODO' -n -r ./lib 2>/dev/null",
+    "prepack": "npm test && npm run build && npm run demo && npm run doc",
+    "postpublish": "npm run gh-demo && npm run gh-doc"
   },
   "files": [
     "index.mjs",
@@ -79,11 +97,8 @@
   "dependencies": {
     "ansi-colors": "^4.1.3",
     "argparse": "^2.0.1",
-    "cross-spawn": "https://github.com/dimaslanjaka/node-cross-spawn/raw/80999ac7a7031a81e11ddb5fab0f8ba433041c98/release/cross-spawn.tgz",
-    "entities": "^4.4.0",
-    "fs-extra": "^11.2.0",
-    "glob": "^11.0.0",
-    "linkify-it": "^5.0.0",
+    "entities": "^4.5.0",
+    "linkify-it": "^5.0.1",
     "mdurl": "^2.0.0",
     "minimist": "^1.2.8",
     "punycode.js": "^2.3.1",
@@ -105,9 +120,9 @@
     "ansi": "^0.3.0",
     "benchmark": "~2.1.0",
     "binary-collections": "^2.0.9",
-    "c8": "^8.0.1",
+    "c8": "^11.0.0",
     "chai": "^4.2.0",
-    "eslint": "^9.12.0",
+    "eslint": "^9.39.4",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.31.0",
@@ -115,14 +130,14 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-promise": "^7.1.0",
     "express": "^4.14.0",
-    "gh-pages": "^6.1.0",
+    "gh-pages": "^6.3.0",
     "git-command-helper": "^2.0.2",
     "globals": "^15.11.0",
-    "highlight.js": "^11.9.0",
+    "highlight.js": "^11.11.1",
     "jest-worker": "^29.7.0",
     "markdown-it-abbr": "^2.0.0",
     "markdown-it-container": "^4.0.0",
-    "markdown-it-deflist": "^3.0.0",
+    "markdown-it-deflist": "^3.0.1",
     "markdown-it-emoji": "^3.0.0",
     "markdown-it-footnote": "^4.0.0",
     "markdown-it-for-inline": "^2.0.1",
@@ -130,36 +145,12 @@
     "markdown-it-mark": "^4.0.0",
     "markdown-it-sub": "^2.0.0",
     "markdown-it-sup": "^2.0.0",
-    "markdown-it-testgen": "^0.1.3",
-    "mocha": "^10.2.0",
-    "ndoc": "^6.0.0",
-    "needle": "^3.0.0",
-    "prettier": "^3.3.3",
-    "rimraf": "^6.0.1",
-    "rollup": "^4.5.0",
-    "shelljs": "^0.8.4",
-    "supertest": "^6.0.1",
-    "typescript": "^5.6.3"
+    "ndoc": "^6.0.1",
+    "neostandard": "^0.13.0",
+    "terser": "^5.48.0",
+    "tinybench": "^6.0.2",
+    "vite": "^8.0.14",
+    "vite-plugin-singlefile": "^2.3.3"
   },
-  "mocha": {
-    "inline-diffs": true,
-    "timeout": 60000
-  },
-  "resolutions": {
-    "typescript": "~5.8.0",
-    "@types/hexo": "https://github.com/dimaslanjaka/hexo/raw/2a0275d3e9ffa777a8576578535ab60a2c4f50be/releases/hexo.tgz",
-    "binary-collections": "https://github.com/dimaslanjaka/bin/raw/0bde69c6f08999b29879ed85957230fe20f90917/releases/bin.tgz",
-    "cross-spawn": "https://github.com/dimaslanjaka/node-cross-spawn/raw/80999ac7a7031a81e11ddb5fab0f8ba433041c98/release/cross-spawn.tgz",
-    "git-command-helper": "https://github.com/dimaslanjaka/git-command-helper/raw/bb0d4904262ecca10dcf925096e082ab10eb7a8a/release/git-command-helper.tgz",
-    "hexo-util": "https://github.com/dimaslanjaka/hexo/raw/2a0275d3e9ffa777a8576578535ab60a2c4f50be/releases/hexo-util.tgz",
-    "instant-indexing": "https://github.com/dimaslanjaka/static-blog-generator/raw/f221d11cdc32fa7dd001e5236f8c3f30387e62d2/packages/instant-indexing/release/instant-indexing.tgz",
-    "markdown-it": "https://github.com/dimaslanjaka/markdown-it/raw/b6d375e8254569b36273f454e3ceecd9184f3905/release/markdown-it.tgz",
-    "nodejs-package-types": "https://github.com/dimaslanjaka/nodejs-package-types/raw/5f18f2e8c4d8230f71f3f327ac14756d7eeae9ce/release/nodejs-package-types.tgz",
-    "proxies-grabber": "https://github.com/dimaslanjaka/proxies-grabber/raw/fccbcb5ff53fabe24817d75f808912de97fe8eb5/release/proxies-grabber.tgz",
-    "sbg-api": "https://github.com/dimaslanjaka/static-blog-generator/raw/95400dd87106542a640092fa2073ee7d5c9b83e6/packages/sbg-api/release/sbg-api.tgz",
-    "sbg-cli": "https://github.com/dimaslanjaka/static-blog-generator/raw/8c0f903cb1643add882c32d7a2180d2b99e1154f/packages/sbg-cli/release/sbg-cli.tgz",
-    "sbg-server": "https://github.com/dimaslanjaka/static-blog-generator/raw/8c0f903cb1643add882c32d7a2180d2b99e1154f/packages/sbg-server/release/sbg-server.tgz",
-    "sbg-utility": "https://github.com/dimaslanjaka/static-blog-generator/raw/600e4bf0e79ee76bfd173ca6e2fdb46175523b21/packages/sbg-utility/release/sbg-utility.tgz",
-    "static-blog-generator": "https://github.com/dimaslanjaka/static-blog-generator/raw/8c0f903cb1643add882c32d7a2180d2b99e1154f/packages/static-blog-generator/release/static-blog-generator.tgz"
-  }
+  "packageManager": "yarn@4.13.0"
 }

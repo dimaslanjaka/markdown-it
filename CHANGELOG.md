@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [14.2.0] - 2026-05-24
+### Added
+- `isPunctCharCode` to utilities.
+
+### Fixed
+- Don't end HTML comment blocks on a blank line, #1155.
+- Properly recognize astral chars (surrogates) in delimiter scans for
+  emphasis-like markers, #1072. Big thanks to @tats-u for his global efforts
+  with improving CJK support.
+- Preserve unicode whitespaces when trimm headings/paragraphs, #1074.
+- More strict entities decode to avoid false positives `;`, #1096.
+- Restore block parser state on fail in `lheading` rule, #1131.
+
+### Security
+- Fixed poor smartquotes perfomance on > 70k quotes in single block
+- Bumped linkify-it to 5.0.1 with fixed potential perfomance issues.
+
+
+## [14.1.1] - 2026-01-11
+### Security
+- Fixed regression from v13 in linkify inline rule. Specific patterns could
+  cause high CPU use. Thanks to @ltduc147 for report.
+
 
 ## [14.1.0] - 2024-03-19
 ### Changed
@@ -648,6 +671,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed presets folder (configs -> presets).
 
 
+[14.2.0]: https://github.com/markdown-it/markdown-it/compare/14.1.1...14.2.0
+[14.1.1]: https://github.com/markdown-it/markdown-it/compare/14.1.0...14.1.1
 [14.1.0]: https://github.com/markdown-it/markdown-it/compare/14.0.0...14.1.0
 [14.0.0]: https://github.com/markdown-it/markdown-it/compare/13.0.2...14.0.0
 [13.0.2]: https://github.com/markdown-it/markdown-it/compare/13.0.1...13.0.2

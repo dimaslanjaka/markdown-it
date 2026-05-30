@@ -1,12 +1,5 @@
-html,
-body,
-.full-height {
-  height: 100%;
-}
-
 body {
   overflow-x: hidden;
-  padding-bottom: 160px;
   background-color: #fbfbfb;
 }
 
@@ -15,39 +8,56 @@ body {
   height: 1.2em;
 }
 
-.demo-options {
-  margin-bottom: 30px;
-}
-
 .opt__strict .not-strict {
   opacity: 0.3;
 }
 
-.checkbox {
-  margin-right: 10px;
+.demo-column {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .source {
-  width: 100%;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  font-size: 13px;
-  padding: 2px;
+  min-height: 0;
+  padding: 2px 6px;
+  resize: none;
+}
+
+.result-html,
+.result-src,
+.result-debug {
+  margin: 0;
+  padding: 2px 10px;
+  border: 1px solid #ccc;
 }
 
 .result-html {
-  padding: 2px 10px;
-  overflow: auto;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 .result-html img {
   max-width: 35%;
 }
 
+.result-html pre {
+  padding: 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.result-html pre code.hljs{
+  background-color: transparent;
+}
+
+.result-html blockquote {
+  padding: 10px 20px 1px;
+  border-left: 5px solid #ddd;
+}
+
 .result-src,
 .result-debug {
   display: none;
+  background-color: #f8f8f8;
 }
 
 .result-src-content,
@@ -68,9 +78,7 @@ body {
 .result-as-debug .result-src { display: none; }
 
 .demo-control {
-  position: absolute;
-  right: 15px;
-  top: -17px;
+  align-self: flex-end;
   border-radius: 6px 6px 0 0;
   font-size: 12px;
   background-color: #ddd;
@@ -84,15 +92,6 @@ body {
 .demo-control a:last-child {
   padding-right: 30px;
 }
-
-/* twbs fix */
-.hljs {
-  padding: 9.5px;
-}
-.hljs code {
-  white-space: pre;
-}
-
 
 .footnotes {
   -moz-column-count: 2;
@@ -109,47 +108,15 @@ body {
   border-radius: 6px;
 }
 
-.gh-ribbon {
+.github-link {
+  color: #333;
+}
+.github-link:hover {
+  color: #000;
+}
+.github-link svg {
   display: block;
-  position: absolute;
-  right: -60px;
-  top: 44px;
-  transform: rotate(45deg);
-  width: 230px;
-  z-index: 10000;
-  white-space: nowrap;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #686868;
-  box-shadow: 0 0 2px rgba(102,102,102,0.4);
-  padding: 1px 0;
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
 }
-.gh-ribbon a {
-  text-decoration: none !important;
-  border: 1px solid #ccc;
-  color: #fff;
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  outline: medium none;
-  padding: 4px 50px 2px;
-  text-align: center;
-}
-
-/* Override default responsiveness */
-.form-inline .radio,
-.form-inline .checkbox {
-  display: inline-block;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-.form-inline .form-group {
-  display: inline-block;
-  margin-bottom: 0;
-  vertical-align: middle;
-}
-.form-inline .form-control {
-  display: inline-block;
-  vertical-align: middle;
-  width: auto;
-}
-

@@ -31,7 +31,7 @@ ___
 
 Enable typographer option to see result.
 
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
+(c) (C) (r) (R) (tm) (TM) +-
 
 test.. test... test..... test?..... test!....
 
